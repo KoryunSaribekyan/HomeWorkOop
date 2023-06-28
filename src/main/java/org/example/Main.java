@@ -5,7 +5,7 @@ package org.example;
 //        В основной программе создать по одному экземпляру каждого класса.
 public class Main {
     public static void main(String[] args) {
-        Crossbowman crossbowman = new Crossbowman(1,1,1,1,"crossbowman");
+        Crossbowman crossbowman = new Crossbowman(1,2,1,1,"crossbowman",5,"Arbalet",5);
         Lanceman lanceman = new Lanceman(1,1,1,1,"lanceman");
         Mage mage = new Mage(1,1,1,1,"mage");
         Monk monk = new Monk(1,1,1,1,"monk");
