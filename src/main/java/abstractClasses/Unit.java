@@ -1,12 +1,17 @@
-package org.example;
+package abstractClasses;
 
-public abstract class Unit{
+import interfaces.NewInterface;
+
+public abstract class Unit implements NewInterface {
 
     public Unit(int heroWorth, int health, int speed, int agility, String name) {
         HeroWorth = heroWorth;
         Health = health;
         this.speed = speed;
         this.agility = agility;
+        this.name = name;
+    }
+    public Unit (String name){
         this.name = name;
     }
 
@@ -22,6 +27,16 @@ public abstract class Unit{
 
     }
     public void moveAround(){
+
+    }
+
+    @Override
+    public String getInfo() {
+        return this.name;
+    }
+
+    @Override
+    public void step() {
 
     }
 }
