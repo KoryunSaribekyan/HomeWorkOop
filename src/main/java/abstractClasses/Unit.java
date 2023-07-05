@@ -1,8 +1,14 @@
 package abstractClasses;
 
 import interfaces.NewInterface;
+import workClasses.Location;
+
+import java.util.ArrayList;
+
 
 public abstract class Unit implements NewInterface {
+
+
 
     public Unit(int heroWorth, int health, int speed, int agility, String name) {
         HeroWorth = heroWorth;
@@ -11,6 +17,7 @@ public abstract class Unit implements NewInterface {
         this.agility = agility;
         this.name = name;
     }
+
     public Unit (String name){
         this.name = name;
     }
@@ -19,6 +26,14 @@ public abstract class Unit implements NewInterface {
     public int Health;
     public int speed;
     public int agility;
+    public Location location;
+
+    public Unit(String name, int x, int y){
+        this.name = name;
+        location = new Location(x,y);
+
+    }
+
     String name;
     public void attack(){
 
@@ -35,9 +50,10 @@ public abstract class Unit implements NewInterface {
         return this.name;
     }
 
-    @Override
-    public void step() {
-
+    public Location getLocation() {
+        return location;
     }
+
+
 }
 

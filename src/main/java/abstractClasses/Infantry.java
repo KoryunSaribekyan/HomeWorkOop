@@ -9,6 +9,9 @@ public abstract class Infantry extends Unit {
     public Infantry(String name){
         super(name);
     }
+    public Infantry(String name, int x, int y){
+        super(name,x,y);
+    }
 
     public void toAttackFaceToFace() {
 
