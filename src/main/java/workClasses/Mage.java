@@ -10,16 +10,9 @@ public class Mage extends Healers {
     public int mana;
     public int stockOfMana;
 
-    public Mage(int heroWorth, int health, int speed, int agility, String name) {
-        super(heroWorth, health, speed, agility, name);
+    public Mage(String name, int x, int y, int damage, int health) {
+        super(name, x, y, damage, health);
     }
-    public Mage(String name){
-        super(name);
-    }
-    public Mage(String name,int x,int y){super(name, x, y);
-            location = new Location(x,y);
-
-        }
 
 
     @Override

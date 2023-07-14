@@ -1,59 +1,36 @@
 package abstractClasses;
-
 import interfaces.NewInterface;
 import workClasses.Location;
-
 import java.util.ArrayList;
-
-
 public abstract class Unit implements NewInterface {
 
-
-
-    public Unit(int heroWorth, int health, int speed, int agility, String name) {
-        HeroWorth = heroWorth;
-        Health = health;
-        this.speed = speed;
-        this.agility = agility;
-        this.name = name;
-    }
-
-    public Unit (String name){
-        this.name = name;
-    }
-
-    public int HeroWorth; // Ценность героя
-    public int Health;
-    public int speed;
-    public int agility;
-    public Location location;
-
-    public Unit(String name, int x, int y){
+    public Unit(String name, int x, int y, int damage,int health){
         this.name = name;
         location = new Location(x,y);
-
+        this.damage = damage;
+        this.health = health;
     }
 
+    public int health;
+    public int damage;
+    public Location location;
     String name;
-    public void attack(){
 
+    public int getHealth(){
+        return this.health;
     }
-    public void defend(){
-
+    public void takeDamage(int damage) {
+        this.health -= damage;
+        if (this.health < 0) {
+            this.health = 0;
+        }
     }
-    public void moveAround(){
-
-    }
-
     @Override
     public String getInfo() {
         return this.name;
     }
-
     public Location getLocation() {
         return location;
     }
-
-
 }
 

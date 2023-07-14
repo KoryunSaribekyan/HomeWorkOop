@@ -7,7 +7,6 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-
 //        ArrayList<Unit> team1 = new ArrayList<>();
 //        for (int i = 0; i <4; i++) {
 //            int value = new Random().nextInt(5);
@@ -30,17 +29,17 @@ public class Main {
 //        }
 
         ArrayList<Unit> team1 = new ArrayList<>();
-        team1.add(new Crossbowman("Crossbowman", 1, 2));
-        team1.add(new Lanceman("Lanceman", 1, 4));
-        team1.add(new Mage("Mage", 1, 6));
-        team1.add(new Peasant("Peasant", 1, 8));
+        team1.add(new Crossbowman("Crossbowman", 7, 15, 3, 10,10));
+        team1.add(new Lanceman("Lanceman", 1, 4,3,10));
+        team1.add(new Mage("Mage", 1, 6, 0,10));
+        team1.add(new Peasant("Peasant", 1, 8, 0, 10));
 
 
         ArrayList<Unit> team2 = new ArrayList<>();
-        team2.add(new Peasant("PeasantTeam2", 7, 10));
-        team2.add(new Rogue("Rogue", 7, 12));
-        team2.add(new Sniper("Sniper", 7, 14));
-        team2.add(new Monk("Monk", 7, 16));
+        team2.add(new Peasant("PeasantTeam2", 7, 10, 0,10));
+        team2.add(new Rogue("Rogue", 7, 12, 3, 10));
+        team2.add(new Sniper("Sniper", 7, 14, 3,10,10));
+        team2.add(new Monk("Monk", 7, 16, 0, 10));
 
 
 
@@ -60,6 +59,6 @@ public class Main {
             for (Unit unit : team2) {
                 unit.step(team1, team2);
             }
-        }
-
     }
+
+}

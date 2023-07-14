@@ -7,22 +7,10 @@ import java.util.ArrayList;
 
 public class Lanceman extends Infantry {
 
-    private Location currentLocation;
 
-    public Lanceman(int heroWorth, int health, int speed, int agility, String name) {
-        super(heroWorth, health, speed, agility, name);
+    public Lanceman(String name, int x, int y, int damage, int health) {
+        super(name, x, y, damage, health);
     }
-
-    public Lanceman(String name) {
-        super(name);
-    }
-
-    public Lanceman(String name, int x, int y) {
-        super(name, x, y);
-        this.location = new Location(x, y);
-
-    }
-
 
     @Override
     public void step(ArrayList<Unit> team1, ArrayList<Unit> team2) {

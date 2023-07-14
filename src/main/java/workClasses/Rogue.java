@@ -7,19 +7,10 @@ import java.util.ArrayList;
 
 public class Rogue extends Infantry {
 
-    public Rogue(int heroWorth, int health, int speed, int agility, String name) {
-        super(heroWorth, health, speed, agility, name);
-    }
 
-    public Rogue(String name) {
-        super(name);
+    public Rogue(String name, int x, int y, int damage, int health) {
+        super(name, x, y, damage, health);
     }
-
-    public Rogue(String name, int x, int y) {
-        super(name, x, y);
-        this.location = new Location(x, y);
-    }
-
 
     public void stealGun() {  // украсть оружие
 
