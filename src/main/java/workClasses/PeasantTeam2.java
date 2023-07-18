@@ -5,8 +5,8 @@ import abstractClasses.Unit;
 
 import java.util.ArrayList;
 
-public class Peasant extends Unit {
-    public Peasant(String name, int x, int y, int damage, int health) {
+public class PeasantTeam2 extends Unit {
+    public PeasantTeam2(String name, int x, int y, int damage, int health) {
         super(name, x, y, damage, health);
     }
 
@@ -32,4 +32,3 @@ public class Peasant extends Unit {
         bringArrows(friendlyTeam);
     }
 }
-

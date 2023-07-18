@@ -6,21 +6,23 @@ import abstractClasses.Unit;
 import java.util.ArrayList;
 
 public class Sniper extends Shooter {
-
-
     public Sniper(String name, int x, int y, int damage, int health, int numberOfArrows) {
         super(name, x, y, damage, health, numberOfArrows);
     }
 
     @Override
-    public void step(ArrayList<Unit> team1, ArrayList<Unit> team2) {
-        if (health <= 0) return;
-        if (numberOfArrows == 0) return;
+    public void step(ArrayList<Unit> friendlyTeam, ArrayList<Unit> enemyTeam) {
+        if (this.state.equals("dead")) {
+            return;
+        }
+        if (numberOfArrows == 0) {
+            return;
+        }
         double minDistance = Double.MAX_VALUE;
         String closestEnemyName = "";
         Unit closestEnemy = null;
-        for (Unit enemy : team1) {
-            double distance = this.location.minDistance(enemy.getLocation());
+        for (Unit enemy : enemyTeam) {
+            double distance = this.getLocation().minDistance(enemy.getLocation());
             if (distance < minDistance) {
                 minDistance = distance;
                 closestEnemyName = enemy.getInfo();
@@ -31,18 +33,24 @@ public class Sniper extends Shooter {
         System.out.println("Distance: " + minDistance);
 
         if (closestEnemy != null) {
-            Shoot(team1);
+            shoot(enemyTeam);
         }
-        if (isLivingPeasant(team2)) return;
-        numberOfArrows--;
+
+        if (!hasLivingAndStandingPeasant(friendlyTeam)) {
+            numberOfArrows--;
+        }
+
+        if (this.getHealth() <= 0) {
+            die();
+        }
     }
 
     @Override
-    public void Shoot(ArrayList<Unit> team2) {
+    public void shoot(ArrayList<Unit> targets) {
         double minDistance = Double.MAX_VALUE;
         Unit closestEnemy = null;
-        for (Unit enemy : team2) {
-            double distance = this.location.minDistance(enemy.getLocation());
+        for (Unit enemy : targets) {
+            double distance = this.getLocation().minDistance(enemy.getLocation());
             if (distance < minDistance) {
                 minDistance = distance;
                 closestEnemy = enemy;
@@ -50,7 +58,7 @@ public class Sniper extends Shooter {
         }
         if (closestEnemy != null) {
             closestEnemy.takeDamage(this.damage);
-            System.out.println("Sniper shot " + closestEnemy.getInfo() + " for " + damage + " damage.");
+            System.out.println(this.name + " shot " + closestEnemy.getInfo() + " for " + damage + " damage.");
         }
     }
 }

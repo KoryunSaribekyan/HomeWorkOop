@@ -21,19 +21,17 @@ public class Rogue extends Infantry {
 
     @Override
     public void step(ArrayList<Unit> team1, ArrayList<Unit> team2) {
+        if (this.state.equals("dead")) return;
         double minDistance = Double.MAX_VALUE;
         String closestEnemyName = "";
 
 
         for (Unit enemy : team1) {
-            double distance = this.location.minDistance(enemy.getLocation());
+            double distance = this.getLocation().minDistance(enemy.getLocation());
             if (distance < minDistance) {
                 minDistance = distance;
                 closestEnemyName = enemy.getInfo();
             }
         }
-
-        System.out.println("Closest enemy for Rouge: " + closestEnemyName);
-        System.out.println("Distance: " + minDistance);
     }
 }
