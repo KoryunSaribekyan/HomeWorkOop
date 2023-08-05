@@ -1,7 +1,3 @@
-package interfaces;
-
-import abstractClasses.Unit;
-
 import java.util.ArrayList;
 
 public interface NewInterface {
